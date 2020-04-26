@@ -1,7 +1,7 @@
 # Peter Moss COVID-19 AI Research Project
 ## COVID-19 AI Classification
 ### COVID-19 Pneumonia Detection/Early Detection
-[![COVID-19 AI-Classification](Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/AI-Classification)
+[![COVID-19 AI-Classification](../../Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/AI-Classification)
 
 &nbsp;
 
