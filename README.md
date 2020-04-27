@@ -31,7 +31,6 @@ We have also uploaded 2 trained models on above graphs:
 
 As the dataset of CT Scans of COVID19 patients is limited, the model seems to overfit, so you can also contribute by sharing any ideas or providing more dataset for this repository by sending the information on our [email](https://github.com/COVID-19-AI-Research-Project).
 
-=======
 # Peter Moss COVID-19 AI Research Project
 
 ## COVID-19 AI Classification
