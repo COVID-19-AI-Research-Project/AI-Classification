@@ -1,3 +1,26 @@
+# Peter Moss COVID-19 AI Research Project
+
+## COVID-19 AI Classification
+[![COVID-19 AI-Classification](Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/AI-Classification)
+
+[![CURRENT VERSION](https://img.shields.io/badge/CURRENT%20VERSION-0.0.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/0.0.0) [![CURRENT DEV BRANCH](https://img.shields.io/badge/CURRENT%20DEV%20BRANCH-0.1.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/0.1.0)
+
+# Introduction
+
+The **Peter Moss COVID-19 AI Research Project AI Classification** repository is a collection of open source Artificial Intelligence for COVID-19 detection/early detection created by our team. The projects in this repository focus on using AI for classifying COVID-19 using computer vision, including Convolutional Neural Networks (CNN) & Generative Adversarial Networks (GAN).
+
+&nbsp;
+
+# COVID-19 AI Classification Projects
+
+Below you will find details of the projects in this repository:
+
+|ID | Project | Description | Author |
+|---|---------|-------------|--------|
+| 1 | [COVID-19 Pneumonia detection/early detection](Projects/1/ "COVID-19 Pneumonia detection/early detection") | Detects Covid-19 Pneumonia signs from CT Scan Images by a CNN Model. The model have a uniform dataset of 764 Images of CT Scan which consist 349 Images of Covid-19 Pneumonia affected patients and remaining shows normal patient scans. | [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai.com/team/AniruddhSharma "Aniruddh Sharma") |
+
+&nbsp;
+
 # COVID19-AI-Detection
 Open source Artificial Intelligence (CNNs &amp; GANs) for COVID-19 Pneumonia detection/early detection.
 
@@ -31,28 +54,6 @@ We have also uploaded 2 trained models on above graphs:
 
 As the dataset of CT Scans of COVID19 patients is limited, the model seems to overfit, so you can also contribute by sharing any ideas or providing more dataset for this repository by sending the information on our [email](https://github.com/COVID-19-AI-Research-Project).
 
-# Peter Moss COVID-19 AI Research Project
-
-## COVID-19 AI Classification
-[![COVID-19 AI-Classification](Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/AI-Classification)
-
-[![CURRENT VERSION](https://img.shields.io/badge/CURRENT%20VERSION-0.0.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/0.0.0) [![CURRENT DEV BRANCH](https://img.shields.io/badge/CURRENT%20DEV%20BRANCH-0.1.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/0.1.0)
-
-# Introduction
-
-The **Peter Moss COVID-19 AI Research Project AI Classification** repository is a collection of open source Artificial Intelligence for COVID-19 detection/early detection created by our team. The projects in this repository focus on using AI for classifying COVID-19 using computer vision, including Convolutional Neural Networks (CNN) & Generative Adversarial Networks (GAN).
-
-&nbsp;
-
-# COVID-19 AI Classification Projects
-
-Below you will find details of the projects in this repository:
-
-|ID | Project | Description | Author |
-|---|---------|-------------|--------|
-| 1 | [COVID-19 Pneumonia detection/early detection](Projects/1/ "COVID-19 Pneumonia detection/early detection") | Detects Covid-19 Pneumonia signs from CT Scan Images by a CNN Model. The model have a uniform dataset of 764 Images of CT Scan which consist 349 Images of Covid-19 Pneumonia affected patients and remaining shows normal patient scans. | [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai.com/team/AniruddhSharma "Aniruddh Sharma") |
-
-&nbsp;
 
 # Contributing
 
