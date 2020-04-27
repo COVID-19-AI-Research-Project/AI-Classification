@@ -3,7 +3,7 @@
 ## COVID-19 AI Classification
 
 ### COVID-19 Pneumonia Detection/Early Detection
-[![COVID-19 AI-Classification](../../../Media/Images/covid-19-ai-classification.png)](https://github.com/aniruddh-1/AI-Classification/tree/0.1.0/Projects/1/Documentation/Installation/Installation.md)
+[![COVID-19 AI-Classification](../../../Media/Images/covid-19-ai-classification.png)](https://github.com/aniruddh-1/AI-Classification)
 
 &nbsp;
 
