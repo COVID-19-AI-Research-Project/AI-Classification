@@ -3,7 +3,7 @@
 ## COVID-19 AI Classification
 
 ### COVID-19 Pneumonia Detection/Early Detection
-![GeniSysAI Server](../../Media/Images/covid-19-ai-classification.png)
+![GeniSysAI Server](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/covid-19-ai-classification.png)
 
 &nbsp;
 
