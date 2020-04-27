@@ -16,7 +16,6 @@ You can follow the installation steps manually on this page, or you can use the 
 ```
 sh Scripts/Installation/Shell/Install.sh
 ```
-
 &nbsp;
 # Clone the repository
 
