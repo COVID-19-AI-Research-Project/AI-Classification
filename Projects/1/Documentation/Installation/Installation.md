@@ -18,7 +18,6 @@ sh Scripts/Installation/Shell/Install.sh
 ```
 
 &nbsp;
-
 # Clone the repository
 
 Clone the [AI-Classification](https://github.com/COVID-19-AI-Research-Project/AI-Classification "AI-Classification") repository from the [Peter Moss Acute Myeloid & Lymphoblastic COVID-19 AI Research Project](https://github.com/COVID-19-AI-Research-Project "Peter Moss COVID-19 AI Research Project") Github Organization.
