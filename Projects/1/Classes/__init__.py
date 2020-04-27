@@ -8,7 +8,7 @@ import pickle
 import numpy as np
 import time
 import os
-#use this below code line only when you have CPU or not enabled NVIDIA with CUDA while training with GPU.
+#use this below code line only when you not have Nvidia Graphic Card and CUDA while training with GPU.
 #os.environ["CUDA_VISIBLE_DEVICES"]="-1"    
 
 NAME = "covid19_and_normal".format(int(time.time()))
