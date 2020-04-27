@@ -4,7 +4,6 @@
 
 ### COVID-19 Pneumonia Detection/Early Detection
 ![GeniSysAI Server](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/covid-19-ai-classification.png)
-
 &nbsp;
 
 # Installation & setup
