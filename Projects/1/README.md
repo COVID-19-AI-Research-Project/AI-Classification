@@ -6,8 +6,17 @@
 &nbsp;
 
 # Introduction
+![GeniSysAI Server](../../Media/Images/tensorflow.png)
+TensorFlow is an end-to-end open source platform for machine learning. It has a comprehensive, flexible ecosystem of tools, libraries, and community resources that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML-powered applications.
 
-Detects Covid-19 Pneumonia signs from CT Scan Images by a CNN Model. The model have a uniform dataset of 764 Images of CT Scan which consist 349 Images of Covid-19 Pneumonia affected patients and remaining shows normal patient scans.
+TensorFlow was originally developed by researchers and engineers working on the Google Brain team within Google's Machine Intelligence Research organization to conduct machine learning and deep neural networks research. The system is general enough to be applicable in a wide variety of other domains, as well.
+
+TensorFlow provides stable Python and C++ APIs, as well as non-guaranteed backward compatible API for other languages.
+
+We will be using Tensorflow 2.1.0 with Python3 for detecting Covid-19 Pneumonia signs from CT Scan Images by a CNN(Convolutional Neural Network) Model. The model have a uniform dataset of 764 Images of CT Scan which consist 349 Images of Covid-19 Pneumonia affected patients and remaining shows normal patient scans.
+
+## Installation
+Please follow the [Installation Guide](../../Documentation/Installation/Installation.md "Installation Guide") to install COVID-19 AI Classification Tensorflow.
 
 &nbsp;
 
