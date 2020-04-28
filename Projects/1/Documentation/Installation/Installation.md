@@ -3,20 +3,52 @@
 ## COVID-19 AI Classification
 
 ![GeniSysAI Server](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/covid-19-ai-classification.png)
+
 &nbsp;
 
 # Installation & setup
-Here you will find all of the required setup steps to get all required packages installed.
-1. Download and Install [Python 3.5-3.7](https://www.python.org/downloads/).
-2. Install [Tensorflow](https://www.tensorflow.org/install#install-tensorflow-2).
+The following guide will take you through setting up and installing the [AI-Classification](https://github.com/aniruddh-1/AI-Classification).
 
-## Quick install(For Python3 Installed Users)
-You can follow the installation steps manually on this page, or you can use the "quick install" scripts provided. To do a quick install, navigate to the project root and use the following command:
+&nbsp;
 
+# Prerequisites
+
+## Ubuntu 18.04.4 LTS
+For this Project, the operating system choice is [Ubuntu 18.04.4 LTS](https://releases.ubuntu.com/18.04.4/ "Ubuntu 18.04.4 LTS"). To get your operating system installed you can follow the [Create a bootable USB stick on Ubuntu](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0 "Create a bootable USB stick on Ubuntu") tutorial.
+
+# Python3 & Tensorflow2
+Ubuntu 18.04 come with Python 3.6 by default. You should be able to invoke it with the command in Shell:
+```
+python3
+```
+**The installation can be run on an existing installation of Ubuntu, however we recommend using a fresh installation.**
+If you face any error or problem while running above command, follow the below commands:
+```
+sudo apt-get update
+sudo apt-get install python3.6
+```
+You can then invoke it with the command:
+```
+python3.6
+```
+Now install the required remaining Python libraries and Tensorflow2 for  on system by following shell commands:
+```
+pip install numpy
+pip install pickle-mixin
+pip install os-sys
+pip install times
+pip install h5py
+pip install random2
+pip install tensorflow==2.1.0
+pip install tensorflow-gpu==2.1.0
+pip install tensorboard==2.1.0
+```
+## Quick Install
+To do a continuous install after installing Python3.6, use the following command from the Projects/1:
 ```
 sh Scripts/Installation/Shell/Install.sh
 ```
-&nbsp;
+
 # Clone the repository
 
 Clone the [AI-Classification](https://github.com/COVID-19-AI-Research-Project/AI-Classification "AI-Classification") repository from the [Peter Moss Acute Myeloid & Lymphoblastic COVID-19 AI Research Project](https://github.com/COVID-19-AI-Research-Project "Peter Moss COVID-19 AI Research Project") Github Organization.
@@ -64,4 +96,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](../../../
 
 # Bugs/Issues
 
-We use the [repo issues](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/repo-issues.png "repo issues") to track bugs and general requests related to using this project. See [CONTRIBUTING](../../../CONTRIBUTING.md "CONTRIBUTING") for more info on how to submit bugs, feature requests and proposals.
+We use the [repo issues](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/repo-issues.png "repo issues") to track bugs and general requests related to using this project. See [CONTRIBUTING](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/CONTRIBUTING.md "CONTRIBUTING") for more info on how to submit bugs, feature requests and proposals.
