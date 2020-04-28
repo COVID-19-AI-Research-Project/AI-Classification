@@ -84,7 +84,7 @@ The repository can be used for following purposes:
  ```
 Open your browser and navigate to shown web address in shell. In our case we gave many values to the list of parameters and the tensorboard tab was recorded with the following results:
 
-![GeniSysAI Server]https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/tensorboard_log.png)
+![GeniSysAI Server](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/tensorboard_log.png)
 
 
 ## Developer Forks
