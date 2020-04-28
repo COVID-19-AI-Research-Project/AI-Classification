@@ -57,7 +57,7 @@ The **-b "0.1.0"** parameter ensures you get the code from the latest developmen
 ```
 
 ## Quick Install
-To do a continuous install after installing Python3.6, use the following command from the Projects/1:
+To do a continuous install of above Python Libraries and Tensorflow2 after installing Python3.6, use the following command from the [Projects/1](https://github.com/aniruddh-1/AI-Classification/tree/0.1.0/Projects/1):
 ```
 sh Scripts/Installation/Shell/Install.sh
 ```
