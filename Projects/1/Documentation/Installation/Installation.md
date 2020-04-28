@@ -55,20 +55,16 @@ The **-b "0.1.0"** parameter ensures you get the code from the latest developmen
 ```
   $ git clone -b "0.1.0" https://github.com/COVID-19-AI-Research-Project/AI-Classification.git
 ```
+Once you have used the command above you will see a directory called **AI-Classification** in the location you chose to clone to. In terminal, navigate to the **AI-Classification** directory, this is your project root directory.
+
+## Developer Forks
+Developers from the Github community that would like to contribute to the development of this project should first create a fork, and clone that repository. For detailed information please view the [CONTRIBUTING](https://github.com/COVID-19-AI-Research-Project/COVID19-AI-Quantum-Tensorflow/blob/master/CONTRIBUTING.md "CONTRIBUTING") guide.
 
 ## Quick Install
 To do a continuous install of above Python Libraries and Tensorflow2 after installing Python3.6, use the following command from the [Projects/1](https://github.com/aniruddh-1/AI-Classification/tree/0.1.0/Projects/1):
 ```
 sh Scripts/Installation/Shell/Install.sh
 ```
-
-
-Once you have used the command above you will see a directory called **AI-Classification** in the location you chose to clone to. In terminal, navigate to the **AI-Classification** directory, this is your project root directory.
-
-
-
-## Developer Forks
-Developers from the Github community that would like to contribute to the development of this project should first create a fork, and clone that repository. For detailed information please view the [CONTRIBUTING](https://github.com/COVID-19-AI-Research-Project/COVID19-AI-Quantum-Tensorflow/blob/master/CONTRIBUTING.md "CONTRIBUTING") guide.
 
 &nbsp;
 
