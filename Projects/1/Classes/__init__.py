@@ -57,4 +57,4 @@ for conv_layer in conv_layers:
 			model.compile(loss = 'binary_crossentropy', optimizer = 'adam', metrics = ['accuracy'])
 			model.fit(X,Y, batch_size = 9, epochs = 14, validation_split = 0.3)
 
-model.save('covid19_pneumonia_detection_cnn.model')
+model.save('covid19_pneumonia_detection_cnn.model') #comment this line while using tensorboard for checking the performance of multiple model architectures by optimizing and changing values of parameters.
