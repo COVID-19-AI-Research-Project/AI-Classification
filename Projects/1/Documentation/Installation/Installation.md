@@ -83,7 +83,8 @@ The repository can be used for following purposes:
  tensorboard --logdir logs
  ```
   -Open your browser and navigate to shown web address in shell. In our case we gave many values to the list of parameters and the tensorboard tab was recorded with the following results:
-  https://github.com/aniruddh-1/AI-Classification/tree/0.1.0/Projects/1/Media/Images/tensorboard_log.png
+  
+  ![GeniSysAI Server](https://github.com/aniruddh-1/AI-Classification/tree/0.1.0/Projects/1/Media/Images/tensorboard_log.png)
 
 ## Developer Forks
 Developers from the Github community that would like to contribute to the development of this project should first create a fork, and clone that repository. For detailed information please view the [CONTRIBUTING](https://github.com/COVID-19-AI-Research-Project/COVID19-AI-Quantum-Tensorflow/blob/master/CONTRIBUTING.md "CONTRIBUTING") guide.
