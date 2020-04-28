@@ -6,6 +6,21 @@
 
 &nbsp;
 
+# Clone the repository
+
+Clone the [AI-Classification](https://github.com/COVID-19-AI-Research-Project/AI-Classification "AI-Classification") repository from the [Peter Moss Acute Myeloid & Lymphoblastic COVID-19 AI Research Project](https://github.com/COVID-19-AI-Research-Project "Peter Moss COVID-19 AI Research Project") Github Organization.
+
+To clone the repository and install the COVID19 AI Quantum Tensorflow repository, make sure you have Git installed. Now navigate to the location you want to clone the repository to on your device using terminal/commandline, and then use the following command.
+
+The **-b "0.1.0"** parameter ensures you get the code from the latest development branch. Before using the below command please check our latest development branch in the button at the top of this page.
+
+```
+  $ git clone -b "0.1.0" https://github.com/COVID-19-AI-Research-Project/AI-Classification.git
+```
+
+Once you have used the command above you will see a directory called **AI-Classification** in the location you chose to clone to. In terminal, navigate to the **AI-Classification** directory, this is your project root directory.
+
+
 # Installation & setup
 The following guide will take you through setting up and installing the [AI-Classification](https://github.com/aniruddh-1/AI-Classification).
 
@@ -48,21 +63,6 @@ To do a continuous install after installing Python3.6, use the following command
 ```
 sh Scripts/Installation/Shell/Install.sh
 ```
-
-# Clone the repository
-
-Clone the [AI-Classification](https://github.com/COVID-19-AI-Research-Project/AI-Classification "AI-Classification") repository from the [Peter Moss Acute Myeloid & Lymphoblastic COVID-19 AI Research Project](https://github.com/COVID-19-AI-Research-Project "Peter Moss COVID-19 AI Research Project") Github Organization.
-
-To clone the repository and install the COVID19 AI Quantum Tensorflow repository, make sure you have Git installed. Now navigate to the location you want to clone the repository to on your device using terminal/commandline, and then use the following command.
-
-The **-b "0.1.0"** parameter ensures you get the code from the latest development branch. Before using the below command please check our latest development branch in the button at the top of this page.
-
-```
-  $ git clone -b "0.1.0" https://github.com/COVID-19-AI-Research-Project/AI-Classification.git
-```
-
-Once you have used the command above you will see a directory called **AI-Classification** in the location you chose to clone to. In terminal, navigate to the **AI-Classification** directory, this is your project root directory.
-
 
 
 ## Developer Forks
