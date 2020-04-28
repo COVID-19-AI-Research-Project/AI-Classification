@@ -16,5 +16,5 @@ for f in os.listdir():
     f_name = str(COUNT) 
     increment() 
   
-    new_name = '{} {}'.format(f_name, ".png") #makes all images in .png extension if there/any
+    new_name = '{}{}'.format(f_name, ".png") #makes all images in .png extension if there/any
     os.rename(f, new_name)
