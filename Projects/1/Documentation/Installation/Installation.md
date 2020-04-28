@@ -16,7 +16,7 @@ The following guide will take you through setting up and installing the [AI-Clas
 ## Ubuntu 18.04.4 LTS
 For this Project, the operating system choice is [Ubuntu 18.04.4 LTS](https://releases.ubuntu.com/18.04.4/ "Ubuntu 18.04.4 LTS"). To get your operating system installed you can follow the [Create a bootable USB stick on Ubuntu](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0 "Create a bootable USB stick on Ubuntu") tutorial.
 
-# Python3 & Tensorflow2
+## Python3 & Tensorflow2
 Ubuntu 18.04 come with Python 3.6 by default. You should be able to invoke it with the command in Shell:
 ```
 python3
@@ -31,7 +31,7 @@ You can then invoke it with the command:
 ```
 python3.6
 ```
-Now install the required remaining Python libraries and Tensorflow2 for  on system by following shell commands:
+Now install the required remaining Python libraries and Tensorflow2 on system by following shell commands:
 ```
 pip install numpy
 pip install pickle-mixin
