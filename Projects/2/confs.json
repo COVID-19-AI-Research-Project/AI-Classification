@@ -1,0 +1,64 @@
+{
+    "modes": [
+        "Classify",
+        "Client",
+        "Server",
+        "Train"
+    ],
+    "data": {
+        "allowed": [
+            ".png"
+        ],
+        "batch": 64,
+        "channels": 3,
+        "dim": 64,
+        "h5": "Model/model.h5",
+        "rotations": 1,
+        "seed": 42,
+        "test_size": 0.255,
+        "test_0": [
+            "Model/Data/0/Non-Covid (1).png",
+            "Model/Data/0/Non-Covid (54).png",
+            "Model/Data/0/Non-Covid (104).png",
+            "Model/Data/0/Non-Covid (389).png",
+            "Model/Data/0/Non-Covid (582).png"
+        ],
+        "test_1": [
+            "Model/Data/1/Covid (10).png",
+            "Model/Data/1/Covid (76).png",
+            "Model/Data/1/Covid (156).png",
+            "Model/Data/1/Covid (356).png",
+            "Model/Data/1/Covid (675).png"
+        ],
+        "threshold": 0.5,
+        "train": "Model/Data"
+    },
+    "model": {
+        "beta_1": 0.9,
+        "beta_2": 0.999,
+        "decay": 0.0,
+        "dropout": 0.5,
+        "epochs": 50,
+        "epsilon": 0.1,
+        "factor": 0.5,
+        "json": "Model/model.json",
+        "lr": 0.002,
+        "min_lr": 1e-3,
+        "patience": 5,
+        "weights": "Model/model.h5"
+    },
+    "iotJumpWay": {
+        "loc": 0,
+        "zne": 0,
+        "id": 0,
+        "name": "",
+        "mqtt": {
+            "username": "",
+            "password": ""
+        }
+    },
+    "server": {
+        "ip": "",
+        "port": 8181
+    }
+}
