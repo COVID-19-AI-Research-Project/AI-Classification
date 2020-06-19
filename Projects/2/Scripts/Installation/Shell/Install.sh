@@ -8,6 +8,8 @@ if [ "$cmsg" = "Y" -o "$cmsg" = "y" ]; then
 
     echo "- Installing required Python libraries and Tensorflow"
     
+    pip3 install psutil
+    pip3 install requests
     pip3 install numpy
     pip3 install scipy
     pip3 install scikit-image
@@ -17,6 +19,7 @@ if [ "$cmsg" = "Y" -o "$cmsg" = "y" ]; then
     pip3 install jsonpickle
     pip3 install flask
     pip3 install tensorflow-gpu==2.1.0
+    pip3 install paho-mqtt
 
 else
     echo $FMSG;

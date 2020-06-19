@@ -34,10 +34,11 @@ class Model():
     Model functions for the COVID-19 Tensorflow DenseNet Classifier.
     """
 
-    def __init__(self):
+    def __init__(self, iotJumpWay):
         """ Initializes the class. """
 
         self.Helpers = Helpers("Model", False)
+        self.iotJumpWay = iotJumpWay
 
     def do_model(self, data):
 
@@ -387,11 +388,13 @@ class Model():
         """ Gets a prediction for an image. """
 
         x = tf.keras.preprocessing.image.img_to_array(img)
+        x = cv2.cvtColor(x, cv2.COLOR_BGRA2BGR)
         x = np.expand_dims(x, axis=0)
         x /= 255
 
         predictions = self.tfmodel.predict(x)
         prediction = predictions[0]
         prediction = np.argmax(prediction)
+        confidence = predictions[0][prediction]
 
-        return prediction
+        return prediction, confidence

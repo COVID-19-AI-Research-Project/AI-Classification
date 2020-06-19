@@ -9,7 +9,7 @@
 # Title:         iotJumpWay Class
 # Description:   iotJumpWay functions for the  COVID-19 Tensorflow DenseNet Classifier.
 # License:       MIT License
-# Last Modified: 2020-06-10
+# Last Modified: 2020-06-19
 #
 ############################################################################################
 
@@ -29,260 +29,143 @@ class Device():
     """
 
     def __init__(self, configs):
-        """ Initializes the class. """
+
+        print("-- Initiating JumpWayMQTT Device")
 
         self.Helpers = Helpers("iotJumpWay")
         self.confs = configs
 
-        self.Helpers.logger.info("Initiating Local iotJumpWay Device.")
+        self.mqttClient = None
+        self.mqttTLS = "/etc/ssl/certs/DST_Root_CA_X3.pem"
+        self.mqttHost = self.confs['host']
+        self.mqttPort = self.confs['port']
 
-        if self.confs['host'] == None:
-            raise ConfigurationException("** Host (host) property is required")
-        elif self.confs['port'] == None:
-            raise ConfigurationException("** Port (port) property is required")
-        elif self.confs['lid'] == None:
+        self.deviceStatusCallback = None
+        self.deviceCommandsCallback = None
+        self.deviceSensorCallback = None
+        self.deviceTriggerCallback = None
+
+        if self.confs['lid'] == None:
             raise ConfigurationException(
                 "** Location ID (lid) property is required")
         elif self.confs['zid'] == None:
             raise ConfigurationException(
-                "** Zone ID (zid) property is required")
-        elif self.Helpers.confs["iotJumpWay"]["an"] == None:
-        elif self.confs['aid'] == None:
+                "** Application Name (zid) property is required")
+        elif self.confs['did'] == None:
             raise ConfigurationException(
-                "** Application ID (aid) property is required")
-        elif self.Helpers.confs["iotJumpWay"]["an"] == None:
+                "** Device Name (did) property is required")
+        elif self.confs['dn'] == None:
             raise ConfigurationException(
-                "** Application Name (an) property is required")
+                "** Device Name (deviceName) property is required")
         elif self.confs['un'] == None:
             raise ConfigurationException(
-                "** MQTT UserName (un) property is required")
+                "** MQTT UserName (username) property is required")
         elif self.confs['pw'] == None:
             raise ConfigurationException(
-                "** MQTT Password (pw) property is required")
+                "** MQTT Password (password) property is required")
 
-        self.mqttClient = None
-        self.mqttTLS = "/etc/ssl/certs/DST_Root_CA_X3.pem"
+        self.Helpers.logger.info("JumpWayMQTT Device Initiated.")
+        
+    def connect(self):
 
-        self.appStatusCallback = None
-        self.deviceStatusCallback = None
-        self.deviceSensorCallback = None
-        self.deviceCommandsCallback = None
-        self.deviceNotificationsCallback = None
-        self.deviceNotificationsCallback = None
+        self.Helpers.logger.info("JumpWayMQTT Device Connection Initiating")
 
-        def __init__(self, configs):
+        deviceStatusTopic = '%s/Devices/%s/%s/Status' % (
+            self.confs['lid'], self.confs['zid'], self.confs['did'])
 
-            print("-- Initiating JumpWayMQTT Device")
+        self.mqttClient = mqtt.Client(
+            client_id=self.confs['dn'], clean_session=False)
+        self.mqttClient.will_set(deviceStatusTopic, "OFFLINE", 0, False)
+        self.mqttClient.tls_set(self.mqttTLS, certfile=None, keyfile=None)
+        self.mqttClient.on_connect = self.on_connect
+        self.mqttClient.on_message = self.on_message
+        self.mqttClient.on_publish = self.on_publish
+        self.mqttClient.on_subscribe = self.on_subscribe
+        self.mqttClient.username_pw_set(
+            str(self.confs['un']), str(self.confs['pw']))
+        self.mqttClient.connect(self.mqttHost, self.mqttPort, 10)
+        self.mqttClient.loop_start()
 
-            self._configs = configs
-            self.mqttClient = None
-            self.mqttTLS = os.path.dirname(
-                os.path.abspath(__file__)) + "/ca.pem"
-            self.mqttHost = 'iot.techbubbletechnologies.com'
-            self.mqttPort = 8883
+        self.Helpers.logger.info("JumpWayMQTT Device Connection Initiated")
 
-            self.deviceStatusCallback = None
-            self.deviceCommandsCallback = None
-            self.deviceKeysCallback = None
-            self.deviceSSLsCallback = None
+    def on_connect(self, client, obj, flags, rc):
+    
+        self.Helpers.logger.info("JumpWayMQTT Device Connected")
+        self.Helpers.logger.info("JumpWayMQTT Connection rc: "+str(rc))
 
-            if self._configs['locationID'] == None:
+        self.deviceStatusPub("ONLINE")
 
-                raise ConfigurationException(
-                    "** Location ID (locationID) property is required")
+    def on_subscribe(self, client, obj, mid, granted_qos):
 
-            elif self._configs['zoneID'] == None:
+        self.Helpers.logger.info("JumpWayMQTT Subscription: " + str(self.confs['deviceName']))
 
-                raise ConfigurationException(
-                    "** Application Name (zoneID) property is required")
+    def on_message(self, client, obj, msg):
 
-            elif self._configs['deviceId'] == None:
+        self.Helpers.logger.info("JumpWayMQTT Message Received")
+        splitTopic = msg.topic.split("/")
 
-                raise ConfigurationException(
-                    "** Device Name (deviceId) property is required")
-
-            elif self._configs['deviceName'] == None:
-
-                raise ConfigurationException(
-                    "** Device Name (deviceName) property is required")
-
-            elif self._configs['username'] == None:
-
-                raise ConfigurationException(
-                    "** MQTT UserName (username) property is required")
-
-            elif self._configs['password'] == None:
-
-                raise ConfigurationException(
-                    "** MQTT Password (password) property is required")
-
-            print("-- JumpWayMQTT Device Initiated")
-
-        def connectToDevice(self):
-
-            print("-- JumpWayMQTT Device Connection Initiating")
-
-            deviceStatusTopic = '%s/Devices/%s/%s/Status' % (
-                self._configs['locationID'], self._configs['zoneID'], self._configs['deviceId'])
-
-            self.mqttClient = mqtt.Client(
-                client_id=self._configs['deviceName'], clean_session=False)
-            self.mqttClient.will_set(deviceStatusTopic, "OFFLINE", 0, False)
-            self.mqttClient.tls_set(self.mqttTLS, certfile=None, keyfile=None)
-            self.mqttClient.on_connect = self.on_connect
-            self.mqttClient.on_message = self.on_message
-            self.mqttClient.on_publish = self.on_publish
-            self.mqttClient.on_subscribe = self.on_subscribe
-            self.mqttClient.username_pw_set(
-                str(self._configs['username']), str(self._configs['password']))
-            self.mqttClient.connect(self.mqttHost, self.mqttPort, 10)
-            self.mqttClient.loop_start()
-
-            print("-- JumpWayMQTT Device Connection Initiated")
-
-        def on_connect(self, client, obj, flags, rc):
-
-            print("-- JumpWayMQTT Device Connected")
-            print("rc: "+str(rc))
-
-            self.publishToDeviceStatus("ONLINE")
-
-        def on_subscribe(self, client, obj, mid, granted_qos):
-
-            print("JumpWayMQTT Subscription: " +
-                  str(self._configs['deviceName']))
-
-        def on_message(self, client, obj, msg):
-
-            print("JumpWayMQTT Message Received")
-            splitTopic = msg.topic.split("/")
-
-            if splitTopic[4] == 'Commands':
-
-                if self.deviceCommandsCallback == None:
-
-                    print(
-                        "** Device Commands Callback Required (deviceCommandsCallback)")
-
-                else:
-
-                    self.deviceCommandsCallback(msg.topic, msg.payload)
-
-            elif splitTopic[4] == 'Keys':
-
-                if self.deviceKeysCallback == None:
-
-                    print("** Device Keys Callback Required (deviceKeysCallback)")
-
-                else:
-
-                    self.deviceKeysCallback(msg.topic, msg.payload)
-
-            elif splitTopic[4] == 'SSLs':
-
-                if self.deviceSSLsCallback == None:
-
-                    print("** Device SSLs Callback Required (deviceSSLsCallback)")
-
-                else:
-
-                    self.deviceSSLsCallback(msg.topic, msg.payload)
-
-        def subscribeToDeviceChannel(self, channelID, qos=0):
-
-            print("-- Subscribing JumpWayMQTT To Device Topic")
-
-            if self._configs['locationID'] == None:
-
-                print("** Device Location ID Required (locationID)")
-                return False
-
-            elif self._configs['zoneID'] == None:
-
-                print("** Device Zone ID Required (zoneID)")
-                return False
-
-            elif self._configs['deviceId'] == None:
-
-                print("** Device ID Required (deviceId)")
-                return False
-
-            elif channelID == None:
-
-                print("** Device Channel ID Required (channelID)")
-                return False
-
+        if splitTopic[4] == 'Commands':
+            if self.deviceCommandsCallback == None:
+                self.Helpers.logger.info("Device Commands Callback Required (deviceCommandsCallback)")
             else:
-
-                deviceChannel = '%s/Devices/%s/%s/%s' % (
-                    self._configs['locationID'], self._configs['zoneID'], self._configs['deviceId'], channelID)
-                self.mqttClient.subscribe(deviceChannel, qos=qos)
-                print("-- Subscribed to Device " +
-                      self._configs['deviceId']+" Channel "+channelID)
-                return True
-
-        def publishToDeviceStatus(self, data):
-
-            if self._configs['locationID'] == None:
-
-                print("** Device Location ID Required (locationID)")
-                return False
-
-            elif self._configs['zoneID'] == None:
-
-                print("** Device Zone ID Required (zoneID)")
-                return False
-
-            elif self._configs['deviceId'] == None:
-
-                print("** Device ID Required (deviceId)")
-                return False
-
+                self.deviceCommandsCallback(msg.topic, msg.payload)
+        elif splitTopic[4] == 'Status':
+            if self.deviceStatusCallback == None:
+                self.Helpers.logger.info("Device Keys Callback Required (deviceStatusCallback)")
             else:
-
-                deviceStatusTopic = '%s/Devices/%s/%s/Status' % (
-                    self._configs['locationID'], self._configs['zoneID'], self._configs['deviceId'])
-                self.mqttClient.publish(deviceStatusTopic, data)
-                print("-- Published to Device Status ")
-
-        def publishToDeviceChannel(self, channelID, data):
-
-            if self._configs['locationID'] == None:
-
-                print("** Device Location ID Required (locationID)")
-                return False
-
-            elif self._configs['zoneID'] == None:
-
-                print("** Device Zone ID Required (zoneID)")
-                return False
-
-            elif self._configs['deviceId'] == None:
-
-                print("** Device ID Required (deviceId)")
-                return False
-
-            elif channelID == None:
-
-                print("** Device Channel ID Required (channelID)")
-                return False
-
+                self.deviceStatusCallback(msg.topic, msg.payload)
+        elif splitTopic[4] == 'Sensors':
+            if self.deviceSensorsCallback == None:
+                self.Helpers.logger.info("Device Keys Callback Required (deviceSensorsCallback)")
             else:
+                self.deviceSensorsCallback(msg.topic, msg.payload)
+        elif splitTopic[4] == 'Trigger':
+            if self.deviceSensorsCallback == None:
+                self.Helpers.logger.info("Device Keys Callback Required (deviceTriggerCallback)")
+            else:
+                self.deviceTriggerCallback(msg.topic, msg.payload)
 
-                deviceChannel = '%s/Devices/%s/%s/%s' % (
-                    self._configs['locationID'], self._configs['zoneID'], self._configs['deviceId'], channelID)
-                self.mqttClient.publish(deviceChannel, json.dumps(data))
-                print("-- Published to Device "+channelID+" Channel")
+    def subscribe(self, channelID, qos=0):
 
-        def on_publish(self, client, obj, mid):
+        self.Helpers.logger.info("Subscribing JumpWayMQTT To Device Topic: " + channelID)
+        
+        if channelID == None:
+            self.Helpers.logger.info("Device Channel ID Required (channelID)")
+            return False
+        else:
+            deviceChannel = '%s/Devices/%s/%s/%s' % (
+                self.confs['lid'], self.confs['zid'], self.confs['did'], channelID)
+            self.mqttClient.subscribe(deviceChannel, qos=qos)
+            self.Helpers.logger.info("Subscribed to Device " + self.confs['did']+" Channel "+channelID)
+            return True
 
-            print("-- Published: "+str(mid))
+    def deviceStatusPub(self, data):
 
-        def on_log(self, client, obj, level, string):
+        deviceStatusTopic = '%s/Devices/%s/%s/Status' % (
+            self.confs['lid'], self.confs['zid'], self.confs['did'])
+        self.mqttClient.publish(deviceStatusTopic, data)
+        self.Helpers.logger.info("Published to Device Status")
 
-            print(string)
+    def devicePub(self, channelID, data):
+        
+        if channelID == None:
+            self.Helpers.logger.info("Device Channel ID Required (channelID)")
+            return False
+        else:
+            deviceChannel = '%s/Devices/%s/%s/%s' % (
+                self.confs['lid'], self.confs['zid'], self.confs['did'], channelID)
+            self.mqttClient.publish(deviceChannel, json.dumps(data))
+            self.Helpers.logger.info("Published to Device "+channelID+" Channel")
 
-        def disconnectFromDevice(self):
-            self.publishToDeviceStatus("OFFLINE")
-            self.mqttClient.disconnect()
-            self.mqttClient.loop_stop()
+    def on_publish(self, client, obj, mid):
+
+        print("-- Published: "+str(mid))
+
+    def on_log(self, client, obj, level, string):
+
+        print(string)
+
+    def disconnect(self):
+        self.deviceStatusPub("OFFLINE")
+        self.mqttClient.disconnect()
+        self.mqttClient.loop_stop()
