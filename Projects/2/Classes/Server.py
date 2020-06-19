@@ -45,19 +45,22 @@ class Server():
             """ Responds to standard HTTP request. """
 
             message = ""
-            classification = self.model.http_classify(request)
+            classification, confidence = self.model.http_classify(request)
 
             if classification == 1:
-                message = "Positive"
+                message = "COVID-19 detected!"
+                diagnosis = "Positive"
             elif classification == 0:
-                message = "Negative"
+                message = "COVID-19 not detected!"
+                diagnosis = "Negative"
 
             resp = jsonpickle.encode({
                 'Response': 'OK',
                 'Message': message,
-                'Classification': np.asscalar(classification)
+                'Diagnosis': diagnosis,
+                'Confidence': np.asscalar(confidence)
             })
-
+            
             return Response(response=resp, status=200, mimetype="application/json")
 
         app.run(host=self.Helpers.confs["server"]["ip"],

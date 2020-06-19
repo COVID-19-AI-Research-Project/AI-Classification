@@ -119,21 +119,27 @@ Train on 16635 samples, validate on 5694 samples
 When training finishes you will be shown the metrics and figures of merit. If you are using Tensorflow GPU these results will vary per train. For stable results each time you should use CPU for training.
 
 ![Accuracy](Media/Images/Accuracy.png)
+
 _Fig 1. Accuracy_
 
 ![Loss](Media/Images/Loss.png)
+
 _Fig 2. Loss_
 
 ![AUC](Media/Images/AUC.png)
+
 _Fig 3. AUC_
 
 ![Precision](Media/Images/Precision.png)
+
 _Fig 4. Precision_
 
 ![Recall](Media/Images/Recall.png)
+
 _Fig 5. Recall_
 
 ![Confusion Matrix](Media/Images/Confusion-Matrix.png)
+
 _Fig 6. Confusion Matrix_
 
 ```
