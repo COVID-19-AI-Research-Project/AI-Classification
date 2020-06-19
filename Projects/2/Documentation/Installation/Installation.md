@@ -13,6 +13,7 @@
 - [Introduction](#introduction)
 - [Required Hardware](#required-hardware)
 - [Prerequisites](#prerequisites)
+  - [HIAS](#hias)
   - [Ubuntu 18.04.4 LTS](#ubuntu-server-18044-lts)
   - [Clone the repository](#clone-the-repository)
     - [Developer Forks](#developer-forks)
@@ -21,6 +22,8 @@
   - [Manual Install](#manual-install)
 - [Data](#data)
   - [Test Data](#test-data)
+- [iotJumpWay](#iotjumpway)
+  - [ipinfo](#ipinfo)
 - [Continue](#continue)
 - [Contributing](#contributing)
   - [Contributors](#contributors)
@@ -37,6 +40,12 @@ The following guide will take you through setting up and installing the [ COVID-
 &nbsp;
 
 # Prerequisites
+
+## HIAS
+
+This project requires a fully functioning [HIAS](https://github.com/LeukemiaAiResearch/HIAS "HIAS") server. Features of this project require the iotJumpWay for device to device/application communication. The iotJumpWay broker is part of the HIAS server and must be running for the system to work correctly. 
+
+Before you start this tutorial please complete the [HIAS Installation Guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS Installation Guide")
 
 ## Ubuntu 18.04.4 LTS
 
@@ -88,52 +97,14 @@ The **-b "0.2.0"** parameter ensures you get the code from the latest master bra
 
 # Installation
 
-Use the following commands to install the required software:
+Use the following commands to install the required software.
 
-## Easy Install
+## Configuration
 
-The following will install all dependencies. This installation will install Tensorflow GPU, if you need to install Tensorflow for CPU remove the **-gpu** in the shell file.
-
-```
-sh Scripts/Installation/Shell/Install.sh
-```
-
-## Manual Install
-
-The following will install all dependencies. This installation will install Tensorflow GPU, if you need to install Tensorflow for CPU remove the **-gpu**
-
-```
-pip3 install numpy
-pip3 install scipy
-pip3 install scikit-image
-pip3 install pandas
-pip3 install scikit-learn
-pip3 install matplotlib
-pip3 install jsonpickle
-pip3 install flask
-pip3 install tensorflow-gpu==2.1.0
-```
-
-&nbsp;
-
-# Data
-
-Now you need to download the [SARS-COV-2 Ct-Scan Dataset](https://www.kaggle.com/plameneduardo/sarscov2-ctscan-dataset "SARS-COV-2 Ct-Scan Dataset"). Once you have downloaded the data you need to add the negative samples to the **Model/Data/0/** directory, and the positive samples to the **Model/Data/1/** directory.
-
-## Test Data
-
-In the project configuration file you will find **data->test_0** and **data->test_1**. The files provided will allow you to use the same test data for your real-world testing when using the local classifier and the HTTP classifier.
-
-These files are skipped during the augmentation process and used when using the local and HTTP classifier. You will also use them in the HIAS UI by sending them to the server for classification.
+You will find the configuration file in the project 2 root directory.
 
 ```
 {
-    "device": {
-        "ip": "",
-        "sever": {
-            "port": 8181
-        }
-    },
     "modes": [
         "Classify",
         "Client",
@@ -183,17 +154,80 @@ These files are skipped during the augmentation process and used when using the 
         "weights": "Model/model.h5"
     },
     "iotJumpWay": {
+        "host": "",
+        "port": 8883,
         "loc": 0,
         "zne": 0,
         "id": 0,
+        "key": "",
         "name": "",
         "mqtt": {
             "username": "",
             "password": ""
         }
+    },
+    "server": {
+        "ip": "",
+        "port": 8181
     }
 }
 ```
+
+## Easy Install
+
+The following will install all dependencies. This installation will install Tensorflow GPU, if you need to install Tensorflow for CPU remove the **-gpu** in the shell file.
+
+```
+sh Scripts/Installation/Shell/Install.sh
+```
+
+## Manual Install
+
+The following will install all dependencies. This installation will install Tensorflow GPU, if you need to install Tensorflow for CPU remove the **-gpu**
+
+```
+pip3 install psutil
+pip3 install requests
+pip3 install numpy
+pip3 install scipy
+pip3 install scikit-image
+pip3 install pandas
+pip3 install scikit-learn
+pip3 install matplotlib
+pip3 install jsonpickle
+pip3 install flask
+pip3 install tensorflow-gpu==2.1.0
+pip3 install paho-mqtt
+```
+
+&nbsp;
+
+# Data
+
+Now you need to download the [SARS-COV-2 Ct-Scan Dataset](https://www.kaggle.com/plameneduardo/sarscov2-ctscan-dataset "SARS-COV-2 Ct-Scan Dataset"). Once you have downloaded the data you need to add the negative samples to the **Model/Data/0/** directory, and the positive samples to the **Model/Data/1/** directory.
+
+## Test Data
+
+In the project configuration file you will find **data->test_0** and **data->test_1**. The files provided will allow you to use the same test data for your real-world testing when using the local classifier and the HTTP classifier.
+
+These files are skipped during the augmentation process and used when using the local and HTTP classifier. You will also use them in the HIAS UI by sending them to the server for classification.
+
+You can use the exact data we used, or you can change them to any files you like.
+
+## iotJumpWay
+
+This system uses the [HIAS](https://github.com/LeukemiaAiResearch/HIAS "HIAS") iotJumpWay broker to communicate. You should already have followed the [HIAS Installation Guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS Installation Guide") and have the server and broker online. 
+
+Once you have accessed your server head to the iotJumpWay devices section. **IoT->Devices** once ther click on the **+** sign to create a new device. Fill out the required details and submit the form. You will be redirected to your device page. 
+
+![Accuracy](../../Media/Images/HIAS-Device.png)
+
+You will need to add your HIAS URL to the **iotJumpWay->host** section in the project configs, **port** should be 8883, then add Location ID, Zone ID, Device ID, Device Name and the MQTT username and password. 
+
+### ipinfo
+
+This project sends regular updates to the iotJumpWay which allows the UI to know vital information about the device such as location. For this you need to register a key at [ipinfo.io](https://ipinfo.io "ipinfo.io"). Once you have your key you need to add it to the **iotJumpWay->key** section in the project confs.
+
 
 &nbsp;
 
@@ -211,7 +245,7 @@ Please read the [CONTRIBUTING](../../../../CONTRIBUTING.md "CONTRIBUTING") docum
 
 ## Contributors
 
-- [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai/team/adam-milton-barker "Adam Milton-Barker") - [Peter Moss Leukemia AI Research](https://www.leukemiaresearchassociation.ai "Peter Moss Leukemia AI Research") Founder & Intel Software Innovator, Sabadell, Spain
+- [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai.com/team/adam-milton-barker "Adam Milton-Barker") - [Peter Moss Leukemia AI Research](https://www.leukemiaresearchassociation.ai "Peter Moss Leukemia AI Research") Founder & Intel Software Innovator, Sabadell, Spain
 
 &nbsp;
 

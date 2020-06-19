@@ -48,9 +48,12 @@
         "weights": "Model/model.h5"
     },
     "iotJumpWay": {
+        "host": "",
+        "port": 8883,
         "loc": 0,
         "zne": 0,
         "id": 0,
+        "key": "",
         "name": "",
         "mqtt": {
             "username": "",
