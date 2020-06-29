@@ -9,7 +9,7 @@
 # Title:         Data Class
 # Description:   Data functions for the COVID-19 Tensorflow DenseNet Classifier.
 # License:       MIT License
-# Last Modified: 2020-06-10
+# Last Modified: 2020-06-28
 #
 ############################################################################################
 
@@ -58,7 +58,6 @@ class Data():
         """ Stores data paths and labels as a list of tuples. """
 
         rdata = []
-
         for ddir in os.listdir(self.tdir):
             tpath = os.path.join(self.tdir, ddir)
             if os.path.isdir(tpath):

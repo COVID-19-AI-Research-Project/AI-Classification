@@ -11,6 +11,7 @@
 # Table Of Contents
 
 - [Introduction](#introduction)
+- [DISCLAIMER](#disclaimer)
 - [Installation](#installation)
 - [Train](#train)
   - [Start Training](#start-training)
@@ -38,6 +39,12 @@
 This project provides the source codes and tutorial for creating a Convolutional Neural Network for detecting COVID-19 in CT-Scans.
 
 We will be using Tensorflow 2 to create a DenseNet implementation using [SARS-COV-2 Ct-Scan Dataset](https://www.kaggle.com/plameneduardo/sarscov2-ctscan-dataset "SARS-COV-2 Ct-Scan Dataset"), a large dataset of CT scans for SARS-CoV-2 (COVID-19) identification created by our collaborators, Plamenlancaster: [Professor Plamen Angelov](https://www.lancaster.ac.uk/lira/people/#d.en.397371) from [Lancaster University](https://www.lancaster.ac.uk/)/ Centre Director @ [Lira](https://www.lancaster.ac.uk/lira/), & his researcher, [Eduardo Soares PhD](https://www.lancaster.ac.uk/sci-tech/about-us/people/eduardo-almeida-soares).
+
+&nbsp;
+
+# DISCLAIMER
+
+This project should be used for research purposes only. The purpose of the project is to show the potential of Artificial Intelligence for medical support systems such as diagnosis systems. Although the program is fairly accurate and shows good results both on paper and in real world testing, it is not meant to be an alternative to professional medical diagnosis. I am a self taught developer with some experience in using Artificial Intelligence for detecting certain types of cancer. I am not a doctor, medical or cancer expert. Please use this system responsibly.
 
 &nbsp;
 
@@ -117,6 +124,12 @@ Train on 16635 samples, validate on 5694 samples
 ### Training Results
 
 When training finishes you will be shown the metrics and figures of merit. If you are using Tensorflow GPU these results will vary per train. For stable results each time you should use CPU for training.
+
+Once trained, a [Tensorflow SavedModel](https://www.tensorflow.org/guide/saved_model "Tensorflow SavedModel") will be created, this includes the model, weights and computation, and can be used in the future to create a frozen model.
+
+The trained model files (model.h5 and model.json) can be found in the **Model** directory, the SavedModel file (saved_model.pb) and the checkpoint files can be found in the **Model/Frozen** directory. 
+
+You can use the model files to test this network without the requirement for training if you wish to do so.
 
 ![Accuracy](Media/Images/Accuracy.png)
 
@@ -327,7 +340,7 @@ Please read the [CONTRIBUTING](../../CONTRIBUTING.md "CONTRIBUTING") document fo
 
 ## Contributors
 
-- [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai/team/adam-milton-barker "Adam Milton-Barker") - [Peter Moss Leukemia AI Research](https://www.leukemiaresearchassociation.ai "Peter Moss Leukemia AI Research") Founder & Intel Software Innovator, Sabadell, Spain
+- [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai/team/adam-milton-barker "Adam Milton-Barker") - [Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss](https://www.leukemiaresearchassociation.ai "Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss") President & Lead Developer, Sabadell, Spain
 
 &nbsp;
 

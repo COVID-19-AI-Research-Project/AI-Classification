@@ -1,10 +1,4 @@
 {
-    "modes": [
-        "Classify",
-        "Client",
-        "Server",
-        "Train"
-    ],
     "data": {
         "allowed": [
             ".png"
@@ -12,7 +6,6 @@
         "batch": 64,
         "channels": 3,
         "dim": 64,
-        "h5": "Model/model.h5",
         "rotations": 1,
         "seed": 42,
         "test_size": 0.255,
@@ -33,20 +26,6 @@
         "threshold": 0.5,
         "train": "Model/Data"
     },
-    "model": {
-        "beta_1": 0.9,
-        "beta_2": 0.999,
-        "decay": 0.0,
-        "dropout": 0.5,
-        "epochs": 50,
-        "epsilon": 0.1,
-        "factor": 0.5,
-        "json": "Model/model.json",
-        "lr": 0.002,
-        "min_lr": 1e-3,
-        "patience": 5,
-        "weights": "Model/model.h5"
-    },
     "iotJumpWay": {
         "host": "",
         "port": 8883,
@@ -60,6 +39,31 @@
             "password": ""
         }
     },
+    "model": {
+        "beta_1": 0.9,
+        "beta_2": 0.999,
+        "decay": 0.0,
+        "dropout": 0.5,
+        "epochs": 50,
+        "epsilon": 0.1,
+        "factor": 0.5,
+        "json": "Model/model.json",
+        "labels": [
+            0,
+            1
+        ],
+        "lr": 0.002,
+        "min_lr": 1e-3,
+        "patience": 5,
+        "tf": "Model/Frozen",
+        "weights": "Model/model.h5"
+    },
+    "modes": [
+        "Classify",
+        "Client",
+        "Server",
+        "Train"
+    ],
     "server": {
         "ip": "",
         "port": 8181
