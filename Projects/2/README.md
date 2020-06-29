@@ -4,7 +4,7 @@
 
 ### COVID-19 Tensorflow DenseNet Classifier
 
-[![COVID-19 AI-Classification](../../Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/AI-Classification)
+[![COVID-19 AI-Classification](../../Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/master/Projects/2)
 
 &nbsp;
 
@@ -334,7 +334,7 @@ https://www.medrxiv.org/content/10.1101/2020.04.24.20078584v2
 
 # Contributing
 
-The Peter Moss Acute Myeloid & Lymphoblastic Leukemia AI Research project encourages and welcomes code contributions, bug fixes and enhancements from the Github.
+The Peter Moss COVID-19 AI Research Project encourages and welcomes code contributions, bug fixes and enhancements from the Github.
 
 Please read the [CONTRIBUTING](../../CONTRIBUTING.md "CONTRIBUTING") document for a full guide to forking our repositories and submitting your pull requests. You will also find information about our code of conduct on this page.
 

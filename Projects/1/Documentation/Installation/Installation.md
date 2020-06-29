@@ -8,7 +8,7 @@
 
 # Installation & setup
 
-The following guide will take you through setting up and installing the [AI-Classification](https://github.com/aniruddh-1/AI-Classification).
+The following guide will take you through setting up and installing the [AI-Classification](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/master/Projects/1).
 
 &nbsp;
 
