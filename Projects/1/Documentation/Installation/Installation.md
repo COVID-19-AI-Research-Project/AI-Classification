@@ -2,7 +2,7 @@
 
 ## COVID-19 AI Classification
 
-![GeniSysAI Server](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/covid-19-ai-classification.png)
+![GeniSysAI Server](../../../../Media/Images/covid-19-ai-classification.png)
 
 &nbsp;
 
@@ -90,9 +90,7 @@ Please read the [CONTRIBUTING](../../../CONTRIBUTING.md "CONTRIBUTING") document
 
 ## Contributors
 
-- **PROJECT AUTHOR:** [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai/team/adam-milton-barker "Adam Milton-Barker") - [Peter Moss Leukemia AI Research](https://www.leukemiaresearchassociation.ai "Peter Moss Leukemia AI Research") Founder & Intel Software Innovator, Sabadell, Spain
-
-- **PROJECT AUTHOR:** [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai/team/aniruddh-sharma "Aniruddh Sharma") - [Peter Moss Leukemia AI Research](https://www.leukemiaresearchassociation.ai "Peter Moss Leukemia AI Research") R&D, Ahmedabad, India
+- [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai/team/aniruddh-sharma "Aniruddh Sharma") - [Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss](https://www.leukemiaresearchassociation.ai "Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss") R&D, Ahmedabad, India
 
 &nbsp;
 
@@ -110,4 +108,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](../../../
 
 # Bugs/Issues
 
-We use the [repo issues](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/repo-issues.png "repo issues") to track bugs and general requests related to using this project. See [CONTRIBUTING](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/CONTRIBUTING.md "CONTRIBUTING") for more info on how to submit bugs, feature requests and proposals.
+We use the [repo issues](Media/Images/repo-issues.png "repo issues") to track bugs and general requests related to using this project. See [CONTRIBUTING](CONTRIBUTING.md "CONTRIBUTING") for more info on how to submit bugs, feature requests and proposals.

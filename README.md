@@ -11,6 +11,7 @@
 # Table Of Contents
 
 - [Introduction](#introduction)
+- [DISCLAIMER](#disclaimer)
 - [Projects](#projects)
 - [Contributing](#contributing)
   - [Contributors](#contributors)
@@ -23,6 +24,12 @@
 # Introduction
 
 The **Peter Moss COVID-19 AI Research Project AI Classification** repository is a collection of open source Artificial Intelligence for COVID-19 detection/early detection created by our team. The projects in this repository focus on using AI for classifying COVID-19 using computer vision, including Convolutional Neural Networks (CNN) & Generative Adversarial Networks (GAN).
+
+&nbsp;
+
+# DISCLAIMER
+
+These projects should be used for research purposes only. The purpose of the projects are to show the potential of Artificial Intelligence for medical support systems such as diagnosis systems. Although the programs are fairly accurate and shows good results both on paper and in real world testing, they are not meant to be an alternative to professional medical diagnosis. Developers that have contributed to this repository have experience in using Artificial Intelligence for detecting certain types of cancer & COVID-19. They are not a doctors, medical or cancer/COVID-19 experts. Please use these systems responsibly.
 
 &nbsp;
 
@@ -45,9 +52,9 @@ Please read the [CONTRIBUTING](CONTRIBUTING.md "CONTRIBUTING") document for a fu
 
 ## Contributors
 
-- [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai/team/adam-milton-barker "Adam Milton-Barker") - [Peter Moss Leukemia AI Research](https://www.leukemiaresearchassociation.ai "Peter Moss Leukemia AI Research") Founder & Intel Software Innovator, Sabadell, Spain
+- [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai/team/adam-milton-barker "Adam Milton-Barker") - [Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss](https://www.leukemiaresearchassociation.ai "Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss") President & Lead Developer, Sabadell, Spain
 
-- [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai/team/aniruddh-sharma "Aniruddh Sharma") - [Peter Moss Leukemia AI Research](https://www.leukemiaresearchassociation.ai "Peter Moss Leukemia AI Research") R&D, Ahmedabad, India
+- [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai/team/aniruddh-sharma "Aniruddh Sharma") - [Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss](https://www.leukemiaresearchassociation.ai "Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss") R&D, Ahmedabad, India
 
 &nbsp;
 

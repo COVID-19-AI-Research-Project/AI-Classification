@@ -8,7 +8,7 @@
 
 # Introduction
 
-![GeniSysAI Server](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Media/Images/tensorflow.png)
+![COVID-19 AI Classification](Media/Images/tensorflow.png)
 TensorFlow is an end-to-end open source platform for machine learning. It has a comprehensive, flexible ecosystem of tools, libraries, and community resources that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML-powered applications.
 
 TensorFlow was originally developed by researchers and engineers working on the Google Brain team within Google's Machine Intelligence Research organization to conduct machine learning and deep neural networks research. The system is general enough to be applicable in a wide variety of other domains, as well.
@@ -17,9 +17,12 @@ TensorFlow provides stable Python and C++ APIs, as well as non-guaranteed backwa
 
 We will be using Tensorflow 2.1.0 with Python3 for detecting Covid-19 Pneumonia signs from CT Scan Images by a CNN(Convolutional Neural Network) Model. The model have a uniform dataset of 764 Images of CT Scan which consist 349 Images of Covid-19 Pneumonia affected patients and remaining shows normal patient scans.
 
+# DISCLAIMER
+This project should be used for research purposes only. The purpose of the project is to show the potential of Artificial Intelligence for medical support systems such as diagnosis systems. Although the program is fairly accurate and shows good results both on paper and in real world testing, it is not meant to be an alternative to professional medical diagnosis. The developer has experience in using Artificial Intelligence for detecting COVID-19, but is not a doctor, medical or COVID-19 expert. Please use this system responsibly.
+
 ## Installation
 
-Please follow the [Installation Guide](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Documentation/Installation/Installation.md) to install COVID-19 AI Classification Tensorflow.
+Please follow the [Installation Guide](Documentation/Installation/Installation.md) to install COVID-19 AI Classification Tensorflow.
 
 ## Project Motivation
 
@@ -27,20 +30,20 @@ The Project can be used for following purposes:
 
 1. **Training a CNN model on the given Image Dataset**
 
-- Unzip the provided CT Scan Image [dataset](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/ct_scans_png_dataset.rar) provided in Classes directory **or** you can also generate or import any other CT Scan dataset in this directory with same directory structure as in unzipped [dataset](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/ct_scans_png_dataset.rar) folder.
-- Use [dataset_preparation.py](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/dataset_preparation.py) to resize all the images into 150x150 Pixels, then converting the PNG format dataset and their labels(covid19 or normal) into Pickle as the Model will take them in form of pickle dataset.
-- The above program will generate two pickle files(X.pickle, Y.pickle) in same [Classes](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/ct_scans_png_dataset.rar) directory, we have also provided generated pickle files for same [dataset](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/ct_scans_png_dataset.rar), so that you can use these pickle files directly in generating CNN Model by using [**init**.py](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/__init__.py).
-- The program([**init**.py](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/__init__.py)) will generate a saved model file and a tensorboard log file which shows the performance of model loss and accuracy in scalar graph.
+- Unzip the provided CT Scan Image [dataset](Classes/ct_scans_png_dataset.rar) provided in Classes directory **or** you can also generate or import any other CT Scan dataset in this directory with same directory structure as in unzipped [dataset](Classes/ct_scans_png_dataset.rar) folder.
+- Use [dataset_preparation.py](Classes/dataset_preparation.py) to resize all the images into 150x150 Pixels, then converting the PNG format dataset and their labels(covid19 or normal) into Pickle as the Model will take them in form of pickle dataset.
+- The above program will generate two pickle files(X.pickle, Y.pickle) in same [Classes](Classes/ct_scans_png_dataset.rar) directory, we have also provided generated pickle files for same [dataset](Classes/ct_scans_png_dataset.rar), so that you can use these pickle files directly in generating CNN Model by using [**init**.py](Classes/__init__.py).
+- The program([**init**.py](Classes/__init__.py)) will generate a saved model file and a tensorboard log file which shows the performance of model loss and accuracy in scalar graph.
 
-**Note:** Use [rename_image_and_filetype_conversion.py](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/rename_image_and_filetype_conversion.py) for making all images in same format(PNG) and indexed as it is possible that while using a new or any open source CT Scan Image dataset in Step 1, all may not be in same Image format and Indexed properly.
+**Note:** Use [rename_image_and_filetype_conversion.py](Classes/rename_image_and_filetype_conversion.py) for making all images in same format(PNG) and indexed as it is possible that while using a new or any open source CT Scan Image dataset in Step 1, all may not be in same Image format and Indexed properly.
 
 2. **Predicting CT Scan Image**
 
-- After training the model on the dataset, use [predict_ct_scan.py](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/predict_ct_scan.py) to test on any lung ct scan image, the program will first resize the image to 150 x 150 pixel size, then loads the image into model and print the type of scan(Covid-19 or Normal Scan). It should be noted that the prediction of model is based on these parameters: Training Accuracy, Training Loss, Validation Accuracy and Validation Loss for the given dataset and the trained model architecture.
+- After training the model on the dataset, use [predict_ct_scan.py](Classes/predict_ct_scan.py) to test on any lung ct scan image, the program will first resize the image to 150 x 150 pixel size, then loads the image into model and print the type of scan(Covid-19 or Normal Scan). It should be noted that the prediction of model is based on these parameters: Training Accuracy, Training Loss, Validation Accuracy and Validation Loss for the given dataset and the trained model architecture.
 
 3. **Using Tensorboard for Optimization, Analysing and Selection of CNN Architectures**
 
-- Add/Change the parameters for conv_layers, conv_sizes and dense_layers of [**init**.py](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/__init__.py) and run it in shell(Comment the last line of program if you don't want to save the trained model) in [Classes](https://github.com/aniruddh-1/AI-Classification/tree/0.1.0/Projects/1/Classes) Directory.
+- Add/Change the parameters for conv_layers, conv_sizes and dense_layers of [**init**.py](Classes/__init__.py) and run it in shell(Comment the last line of program if you don't want to save the trained model) in [Classes](https://github.com/aniruddh-1/AI-Classification/tree/0.1.0/Projects/1/Classes) Directory.
 - A new folder named: "logs" will be genearated in the same Directory. Now run shell in same [Classes](https://github.com/aniruddh-1/AI-Classification/tree/0.1.0/Projects/1/Classes) directory again and execute the following command:
 
 ```
@@ -49,7 +52,7 @@ tensorboard --logdir logs
 
 Open your browser and navigate to shown web address in shell. In our case we gave many values to the list of parameters and the tensorboard tab was recorded with the following results:
 
-![GeniSysAI Server](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/tensorboard_log.png)
+![GeniSysAI Server](Media/Images/tensorboard_log.png)
 
 # COVID19-AI-Detection
 
@@ -61,17 +64,17 @@ Here are some CT-Scans of lungs:
 
 COVID19 Patient Scan:
 
-![alt text](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/covid19_ct_scan.png "CT Scan1")
+![alt text](Media/Images/covid19_ct_scan.png "CT Scan1")
 
 Normal Patient Scan:
 
-![alt text](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/normal_ct_scan.png "CT Scan2")
+![alt text](Media/Images/normal_ct_scan.png "CT Scan2")
 
 The dataset was taken from the following [source](https://github.com/UCSD-AI4H/COVID-CT/tree/master/Images-processed).
-You can go through our [dataset](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Projects/1/Classes/ct_scans_png_dataset.rar) where we have indexed all the images and converted them into same format(PNG).
+You can go through our [dataset](Classes/ct_scans_png_dataset.rar) where we have indexed all the images and converted them into same format(PNG).
 We have used tensorflow library for training a binary classification model of CT Scans using Convolutional Neural Network. The graph of model is as follows:
 
-![alt text](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/cnn_architecture.png "CNN")
+![alt text](Media/Images/cnn_architecture.png "CNN")
 
 We have also uploaded 2 trained models on above graphs:
 
@@ -90,7 +93,7 @@ Please read the [CONTRIBUTING](../../CONTRIBUTING.md "CONTRIBUTING") document fo
 
 ## Contributors
 
-- **PROJECT AUTHOR:** [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai/team/aniruddh-sharma "Aniruddh Sharma") - [Peter Moss Leukemia AI Research](https://www.leukemiaresearchassociation.ai "Peter Moss Leukemia AI Research") R&D, Ahmedabad, India
+- [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai/team/aniruddh-sharma "Aniruddh Sharma") - [Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss](https://www.leukemiaresearchassociation.ai "Asociacion De Investigation En Inteligencia Artificial Para La Leucemia Peter Moss") R&D, Ahmedabad, India
 
 &nbsp;
 
@@ -108,4 +111,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](../../LIC
 
 # Bugs/Issues
 
-We use the [repo issues](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/Media/Images/repo-issues.png "repo issues") to track bugs and general requests related to using this project. See [CONTRIBUTING](https://github.com/aniruddh-1/AI-Classification/blob/0.1.0/CONTRIBUTING.md "CONTRIBUTING") for more info on how to submit bugs, feature requests and proposals.
+We use the [repo issues](../Media/Images/repo-issues.png "repo issues") to track bugs and general requests related to using this project. See [CONTRIBUTING](../CONTRIBUTING.md "CONTRIBUTING") for more info on how to submit bugs, feature requests and proposals.
