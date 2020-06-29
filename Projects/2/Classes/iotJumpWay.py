@@ -9,7 +9,7 @@
 # Title:         iotJumpWay Class
 # Description:   iotJumpWay functions for the  COVID-19 Tensorflow DenseNet Classifier.
 # License:       MIT License
-# Last Modified: 2020-06-19
+# Last Modified: 2020-06-10
 #
 ############################################################################################
 

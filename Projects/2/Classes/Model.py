@@ -9,7 +9,7 @@
 # Title:         Model Class
 # Description:   Model functions for the COVID-19 Tensorflow DenseNet Classifier.
 # License:       MIT License
-# Last Modified: 2020-06-10
+# Last Modified: 2020-06-28
 #
 ############################################################################################
 
@@ -34,11 +34,13 @@ class Model():
     Model functions for the COVID-19 Tensorflow DenseNet Classifier.
     """
 
-    def __init__(self, iotJumpWay):
+    def __init__(self):
         """ Initializes the class. """
 
         self.Helpers = Helpers("Model", False)
-        self.iotJumpWay = iotJumpWay
+
+        self.Helpers.logger.info(
+            "Model class initialization complete.")
 
     def do_model(self, data):
 
@@ -108,6 +110,25 @@ class Model():
         print("")
 
         self.save_model_as_json()
+        self.export_saved_model()
+
+    def save_model_as_json(self):
+        """ Saves the model to JSON. """
+
+        with open(self.Helpers.confs["model"]["json"], "w") as file:
+            file.write(self.tfmodel.to_json())
+
+        self.Helpers.logger.info(
+            "Model JSON saved " + self.Helpers.confs["model"]["json"])
+
+    def export_saved_model(self):
+        """ Saves the model as TF SavedModel. """
+        
+        tf.keras.models.save_model(
+            self.tfmodel, self.Helpers.confs["model"]["tf"], save_format="tf")
+
+        self.Helpers.logger.info(
+            "TF Model saved to " + self.Helpers.confs["model"]["tf"])
 
     def do_evaluate(self):
         """ Evaluates the model """
@@ -243,15 +264,6 @@ class Model():
         self.Helpers.logger.info(
             "Misclassification: " + str(misc) + "(" + str(miscp) + "%)")
 
-    def save_model_as_json(self):
-        """ Saves the model to JSON. """
-
-        with open(self.Helpers.confs["model"]["json"], "w") as file:
-            file.write(self.tfmodel.to_json())
-
-        self.Helpers.logger.info(
-            "Model JSON saved " + self.Helpers.confs["model"]["json"])
-
     def load_model_and_weights(self):
         """ Loads the model and weights. """
 
@@ -288,21 +300,21 @@ class Model():
             self.Helpers.logger.info("Loaded test image " + testFile)
 
             prediction = self.get_prediction(img)
-            self.Helpers.logger.info("Predicted Label: " + str(prediction))
+            self.Helpers.logger.info("Predicted Label: " + str(prediction[0]))
 
             msg = ""
-            if prediction == 1 and testFile.find("/1/") != -1:
+            if prediction[0] == 1 and testFile.find("/1/") != -1:
                 tp += 1
-                msg = "COVID-19 correctly detected (True Positive)"
-            elif prediction == 1 and testFile.find("/0/") != -1:
+                msg = "COVID-19 correctly detected (True Positive) with confidence: " +  str(prediction[1])
+            elif prediction[0] == 1 and testFile.find("/0/") != -1:
                 fp += 1
-                msg = "COVID-19 incorrectly detected (False Positive)"
-            elif prediction == 0 and testFile.find("/0/") != -1:
+                msg = "COVID-19 incorrectly detected (False Positive) with confidence: " +  str(prediction[1])
+            elif prediction[0] == 0 and testFile.find("/0/") != -1:
                 tn += 1
-                msg = "COVID-19 correctly not detected (True Negative)"
-            elif prediction == 0 and testFile.find("/1/") != -1:
+                msg = "COVID-19 correctly not detected (True Negative) with confidence: " +  str(prediction[1])
+            elif prediction[0] == 0 and testFile.find("/1/") != -1:
                 fn += 1
-                msg = "COVID-19 incorrectly not detected (False Negative)"
+                msg = "COVID-19 incorrectly not detected (False Negative) with confidence: " +  str(prediction[1])
 
             self.Helpers.logger.info(msg)
 
@@ -331,18 +343,18 @@ class Model():
             response = self.send_request(testFile)
 
             msg = ""
-            if response["Classification"] == 1 and testFile.find("/1/") != -1:
+            if response["Diagnosis"] == "Positive" and testFile.find("/1/") != -1:
                 tp += 1
-                msg = "COVID-19 correctly detected (True Positive)"
-            elif response["Classification"] == 1 and testFile.find("/0/") != -1:
+                msg = "COVID-19 correctly detected (True Positive) with confidence: " +  str(response["Confidence"])
+            elif response["Diagnosis"] == "Positive" and testFile.find("/0/") != -1:
                 fp += 1
-                msg = "COVID-19 incorrectly detected (False Positive)"
-            elif response["Classification"] == 0 and testFile.find("/0/") != -1:
+                msg = "COVID-19 incorrectly detected (False Positive) with confidence: " +  str(response["Confidence"])
+            elif response["Diagnosis"] == "Negative" and testFile.find("/0/") != -1:
                 tn += 1
-                msg = "COVID-19 correctly not detected (True Negative)"
-            elif response["Classification"] == 0 and testFile.find("/1/") != -1:
+                msg = "COVID-19 correctly not detected (True Negative) with confidence: " +  str(response["Confidence"])
+            elif response["Diagnosis"] == "Negative" and testFile.find("/1/") != -1:
                 fn += 1
-                msg = "COVID-19 incorrectly not detected (False Negative)"
+                msg = "COVID-19 incorrectly not detected (False Negative) with confidence: " +  str(response["Confidence"])
 
             self.Helpers.logger.info(msg)
             print()
@@ -394,7 +406,8 @@ class Model():
 
         predictions = self.tfmodel.predict(x)
         prediction = predictions[0]
-        prediction = np.argmax(prediction)
+        predictioni = np.argmax(prediction)
+        prediction = self.Helpers.confs["model"]["labels"][predictioni]
         confidence = predictions[0][prediction]
 
         return prediction, confidence
