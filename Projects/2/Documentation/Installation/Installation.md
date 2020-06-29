@@ -4,7 +4,7 @@
 
 ### COVID-19 Tensorflow DenseNet Classifier
 
-[![GeniSysAI Server](../../../../Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/xDNN)
+[![GeniSysAI Server](../../../../Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/master/Projects/2)
 
 &nbsp;
 
@@ -45,7 +45,14 @@ The following guide will take you through setting up and installing the [ COVID-
 
 This project requires a fully functioning [HIAS](https://github.com/LeukemiaAiResearch/HIAS "HIAS") server. Features of this project require the iotJumpWay for device to device/application communication. The iotJumpWay broker is part of the HIAS server and must be running for the system to work correctly. 
 
-Before you start this tutorial please complete the [HIAS Installation Guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS Installation Guide")
+Before you start this tutorial please complete the [HIAS Installation Guide](https://github.com/LeukemiaAiResearch/HIAS/blob/master/Documentation/Installation/Installation.md "HIAS Installation Guide").
+
+If you want to use this project without HIAS you can comment out the following lines in **COVID19DN.py**:
+
+```
+COVID19DN.iotjumpway_client()
+COVID19DN.threading()
+```
 
 ## Ubuntu 18.04.4 LTS
 
@@ -220,7 +227,7 @@ This system uses the [HIAS](https://github.com/LeukemiaAiResearch/HIAS "HIAS") i
 
 Once you have accessed your server head to the iotJumpWay devices section. **IoT->Devices** once ther click on the **+** sign to create a new device. Fill out the required details and submit the form. You will be redirected to your device page. 
 
-![Accuracy](../../Media/Images/HIAS-Device.png)
+![HIAS](../../Media/Images/HIAS-Device.png)
 
 You will need to add your HIAS URL to the **iotJumpWay->host** section in the project configs, **port** should be 8883, then add Location ID, Zone ID, Device ID, Device Name and the MQTT username and password. 
 

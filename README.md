@@ -4,7 +4,7 @@
 
 [![COVID-19 AI-Classification](Media/Images/covid-19-ai-classification.png)](https://github.com/COVID-19-AI-Research-Project/AI-Classification)
 
-[![CURRENT VERSION](https://img.shields.io/badge/CURRENT%20VERSION-0.1.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/0.1.0) [![CURRENT DEV BRANCH](https://img.shields.io/badge/CURRENT%20DEV%20BRANCH-0.2.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/0.2.0)
+[![CURRENT VERSION](https://img.shields.io/badge/CURRENT%20VERSION-0.3.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/0.3.0) [![CURRENT DEV BRANCH](https://img.shields.io/badge/CURRENT%20DEV%20BRANCH-0.4.0-blue.svg)](https://github.com/COVID-19-AI-Research-Project/AI-Classification/tree/0.4.0)
 
 &nbsp;
 
@@ -35,18 +35,24 @@ These projects should be used for research purposes only. The purpose of the pro
 
 # Projects
 
-Below you will find details of the projects in this repository. Projects with HIAS = YES require an installation of [HIAS](https://github.com/LeukemiaAiResearch/HIAS "HIAS"), you will not be able to use HIAS projects if you do not have a server already up and running.
+Below you will find details of the projects in this repository. Projects with HIAS = YES require an installation of [HIAS](https://github.com/LeukemiaAiResearch/HIAS "HIAS"), you can use this project without HIAS by commenting out the following lines in **COVID19DN.py**:
+
+```
+COVID19DN.iotjumpway_client()
+COVID19DN.threading()
+```
 
 | ID  | Project                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | HIAS | Author                                                                                                        |
 | --- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------- |
 | 1   | [COVID-19 Pneumonia detection/early detection](Projects/1/ "COVID-19 Pneumonia detection/early detection") | Detects Covid-19 Pneumonia signs from CT Scan Images by a CNN Model. The model have a uniform dataset of 764 Images of CT Scan which consist 349 Images of Covid-19 Pneumonia affected patients and remaining shows normal patient scans.                                                                                                                                                                                                                                                                                                   | NO   | [Aniruddh Sharma](https://www.leukemiaresearchassociation.ai/team/aniruddh-sharma "Aniruddh Sharma")          |
 | 2   | [COVID-19 DenseNet](Projects/2/ "COVID-19 DenseNet")                                                       | Uses DenseNet and [SARS-COV-2 Ct-Scan Dataset](https://www.kaggle.com/plameneduardo/sarscov2-ctscan-dataset "SARS-COV-2 Ct-Scan Dataset"), a large dataset of CT scans for SARS-CoV-2 (COVID-19) identification created by our collaborators, Plamenlancaster: [Professor Plamen Angelov](https://www.lancaster.ac.uk/lira/people/#d.en.397371) from [Lancaster University](https://www.lancaster.ac.uk/)/ Centre Director @ [Lira](https://www.lancaster.ac.uk/lira/), & his researcher, [Eduardo Soares PhD](https://www.lancaster.ac.uk/sci-tech/about-us/people/eduardo-almeida-soares). | YES  | [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai/team/adam-milton-barker "Adam Milton-Barker") |
+| 3   | [COVID-19 Tensorflow DenseNet Classifier For Raspberry Pi 4](Projects/3/ "COVID-19 Tensorflow DenseNet Classifier For Raspberry Pi 4")                                                       | This project uses the trained model from Project 2 and has been modfied to work on a Raspberry Pi 4. You can either train your own model using [Project 2](Projects/2/ "Project 2") or you can use the pre-trained model provided. | YES  | [Adam Milton-Barker](https://www.leukemiaresearchassociation.ai/team/adam-milton-barker "Adam Milton-Barker") |
 
 &nbsp;
 
 # Contributing
 
-The Peter Moss Acute Myeloid & Lymphoblastic Leukemia AI Research project encourages and welcomes code contributions, bug fixes and enhancements from the Github.
+The Peter Moss COVID-19 AI Research Project encourages and welcomes code contributions, bug fixes and enhancements from the Github.
 
 Please read the [CONTRIBUTING](CONTRIBUTING.md "CONTRIBUTING") document for a full guide to forking our repositories and submitting your pull requests. You will also find information about our code of conduct on this page.
 
