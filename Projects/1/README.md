@@ -17,6 +17,9 @@ TensorFlow provides stable Python and C++ APIs, as well as non-guaranteed backwa
 
 We will be using Tensorflow 2.1.0 with Python3 for detecting Covid-19 Pneumonia signs from CT Scan Images by a CNN(Convolutional Neural Network) Model. The model have a uniform dataset of 764 Images of CT Scan which consist 349 Images of Covid-19 Pneumonia affected patients and remaining shows normal patient scans.
 
+# DISCLAIMER
+This project should be used for research purposes only. The purpose of the project is to show the potential of Artificial Intelligence for medical support systems such as diagnosis systems. Although the program is fairly accurate and shows good results both on paper and in real world testing, it is not meant to be an alternative to professional medical diagnosis. The developer has experience in using Artificial Intelligence for detecting COVID-19, but is not a doctor, medical or COVID-19 expert. Please use this system responsibly.
+
 ## Installation
 
 Please follow the [Installation Guide](Documentation/Installation/Installation.md) to install COVID-19 AI Classification Tensorflow.

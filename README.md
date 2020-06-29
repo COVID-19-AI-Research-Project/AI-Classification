@@ -29,7 +29,7 @@ The **Peter Moss COVID-19 AI Research Project AI Classification** repository is 
 
 # DISCLAIMER
 
-These projects should be used for research purposes only. The purpose of the projects are to show the potential of Artificial Intelligence for medical support systems such as diagnosis systems. Although the programs are fairly accurate and shows good results both on paper and in real world testing, they are not meant to be an alternative to professional medical diagnosis. Developers that have contributed to this repository have experience in using Artificial Intelligence for detecting certain types of cancer. They are not a doctors, medical or cancer experts. Please use these systems responsibly.
+These projects should be used for research purposes only. The purpose of the projects are to show the potential of Artificial Intelligence for medical support systems such as diagnosis systems. Although the programs are fairly accurate and shows good results both on paper and in real world testing, they are not meant to be an alternative to professional medical diagnosis. Developers that have contributed to this repository have experience in using Artificial Intelligence for detecting certain types of cancer & COVID-19. They are not a doctors, medical or cancer/COVID-19 experts. Please use these systems responsibly.
 
 &nbsp;
 
