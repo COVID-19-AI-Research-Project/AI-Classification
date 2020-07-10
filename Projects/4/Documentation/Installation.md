@@ -69,7 +69,7 @@ The **-b "0.5.0"** parameter ensures you get the code from the latest master bra
 
 # Continue
 
-Now continue with the [COVID-19 FastAI Classifiers](../Projects/4/ "COVID-19 FastAI Classifiers") tutorial.
+Now continue with the [COVID-19 FastAI Classifiers](../../../Projects/4/ "COVID-19 FastAI Classifiers") tutorial.
 
 &nbsp;
 
